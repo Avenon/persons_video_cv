@@ -1,0 +1,15 @@
+## Project
+data/*
+notebooks/*
+
+## Virtual environments
+venv/*
+
+# Python
+__pycache__
+
+## IDEs
+.idea
+
+# Jupyter
+.ipynb_checkpoints
