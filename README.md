@@ -26,7 +26,14 @@ frame_list[:5]  # Первые 5 кадров
 ```
 
 ### Получение видео из ютуб
+На вход подается url видео трансляции с ютуба, на выходе просмотр видео, и вывод тензора в консоль.
+```python
+from src.reader import YouTubeReader
+video_file = YouTubeReader('https://www.youtube.com/watch?v=UZ_-6NDQAxM&t=605s')
 
+# Запуск воспроизведения и вывод тензора в консоль
+video_file.show_video()
+```
 
 
 ## Структура
