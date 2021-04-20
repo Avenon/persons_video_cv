@@ -1,6 +1,7 @@
 from typing import Text
 
 import cv2
+import streamlink
 
 
 class VideoFileReader(object):
@@ -25,3 +26,23 @@ class VideoFileReader(object):
     @property
     def get_frames(self) -> list:
         return self.__image_list
+
+
+class YouTubeReader(object):
+    """
+    Объект чтения видео с ютуба в реальном времени
+    """
+
+    def __init__(self, url: Text):
+        streams = streamlink.streams(url)
+        self.capture = cv2.VideoCapture(streams["best"].url)
+
+    def show_video(self):
+        while True:
+            ret, frame = self.capture.read()
+            print(frame)
+            cv2.imshow("frame", frame)
+
+            # Для выхода нужно нажать q
+            if cv2.waitKey(1) & 0xFF == ord("q"):
+                break
